@@ -26,7 +26,7 @@ namespace CryptoRack
                 Prices BTC = JsonConvert.DeserializeObject<Prices>(json);
                 if (BTC.USD != prevBTC)
                 {
-                    Console.Write("Bitcoin price: ");
+                    Console.Write("Bitcoin price:asd ");
                     if (BTC.USD < prevBTC)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -38,7 +38,7 @@ namespace CryptoRack
 
                     Console.Write(BTC.USD);
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine("$");
+                    Console.WriteLine("$ asd");
                     prevBTC = BTC.USD;
                 }
                 Thread.Sleep(5000);
