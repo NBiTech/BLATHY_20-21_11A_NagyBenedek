@@ -16,7 +16,7 @@ namespace CryptoRack
             string json;
             double prevBTC = 0;
             Console.WriteLine("\tCOIN\tPRICE\t[CHANGE]\t(CHANGE%)");
-            for (; ; )
+            for (; ;)
             {
                 using (var web = new System.Net.WebClient())
                 {
