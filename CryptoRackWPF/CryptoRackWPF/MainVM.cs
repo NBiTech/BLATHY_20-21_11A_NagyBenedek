@@ -25,7 +25,7 @@ namespace CryptoRack
             switch (e.PropertyName)
             {
                 case "BTCamount":
-                    Result = BTCamount * BTCdata.BTC;
+                    Result = BTCamount * 46000;
                     break;
                 default:
                     break;
