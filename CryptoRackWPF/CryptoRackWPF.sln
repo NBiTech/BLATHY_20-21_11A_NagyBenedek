@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoRack", "CryptoRack\CryptoRack.csproj", "{7CE94415-5DCF-42A9-BF07-0B9B39B7C880}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoRackWPF", "CryptoRackWPF\CryptoRackWPF.csproj", "{FBB0B09E-835B-4060-ADAC-32E52C52BCAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7CE94415-5DCF-42A9-BF07-0B9B39B7C880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CE94415-5DCF-42A9-BF07-0B9B39B7C880}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CE94415-5DCF-42A9-BF07-0B9B39B7C880}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CE94415-5DCF-42A9-BF07-0B9B39B7C880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB0B09E-835B-4060-ADAC-32E52C52BCAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB0B09E-835B-4060-ADAC-32E52C52BCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB0B09E-835B-4060-ADAC-32E52C52BCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB0B09E-835B-4060-ADAC-32E52C52BCAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {476D9C9B-1D4B-43BF-8AAF-098A2775DD53}
+		SolutionGuid = {CF13E599-511A-49A5-A735-CB8529D67EE2}
 	EndGlobalSection
 EndGlobal

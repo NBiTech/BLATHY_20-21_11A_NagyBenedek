@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace CryptoRack
 {
-    class BTCdata
+    class INPUTdata
     {
-        public double RoundUSD { get; set; }
-        public double prevUSD { get; set; }
+        private double usd;
+
+        public double USD { get => usd; set => usd = value; }
+
     }
 }
