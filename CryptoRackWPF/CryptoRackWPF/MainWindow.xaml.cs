@@ -45,44 +45,50 @@ namespace CryptoRack
             string json;
             double percentileout = 0;
             double diffout = 0;
-                using (var web = new System.Net.WebClient())
+            using (var web = new System.Net.WebClient())
+            {
+                var url = @"https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&api_key=fe78af9dcc7d50bfca734160306572698d9a62690be9492c334f626ec4afdec0";
+                json = web.DownloadString(url);
+            }
+            INPUTdata INBTC = JsonConvert.DeserializeObject<INPUTdata>(json);
+            BTC.RoundUSD = (int)Math.Round(INBTC.USD);
+            vm.BTCprice = BTC.RoundUSD;
+            if (BTC.RoundUSD != BTC.PrevUSD)
+            {
+                BemenetLista.Add(BTC.RoundUSD);
+                bemenet.Items.Refresh();
+                if (BTC.PrevUSD != 0)
                 {
-                    var url = @"https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&api_key=fe78af9dcc7d50bfca734160306572698d9a62690be9492c334f626ec4afdec0";
-                    json = web.DownloadString(url);
+                    diffout = BTC.RoundUSD - BTC.PrevUSD;
+                    percentileout = Math.Round((BTC.RoundUSD / BTC.PrevUSD * 100 - 100), 3, MidpointRounding.AwayFromZero);
                 }
-                INPUTdata INBTC = JsonConvert.DeserializeObject<INPUTdata>(json);
-                BTC.RoundUSD = (int)Math.Round(INBTC.USD);
+                BTC.PrevUSD = BTC.RoundUSD;
+            }
 
-                if (BTC.RoundUSD != BTC.PrevUSD)
+            using (var web = new System.Net.WebClient())
+            {
+                var url = @"https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD&api_key=fe78af9dcc7d50bfca734160306572698d9a62690be9492c334f626ec4afdec0";
+                json = web.DownloadString(url);
+            }
+            INPUTdata INETH = JsonConvert.DeserializeObject<INPUTdata>(json);
+            ETH.RoundUSD = (int)Math.Round(INETH.USD);
+            if (ETH.RoundUSD != ETH.PrevUSD)
+            {
+                KimenetLista.Add(ETH.RoundUSD);
+                kimenet.Items.Refresh();
+                if (ETH.PrevUSD != 0)
                 {
-                    BemenetLista.Add(BTC.RoundUSD);
-                    bemenet.Items.Refresh();
-                    if (BTC.PrevUSD != 0)
-                        {
-                            diffout = BTC.RoundUSD - BTC.PrevUSD;
-                            percentileout = Math.Round((BTC.RoundUSD / BTC.PrevUSD * 100 - 100), 3, MidpointRounding.AwayFromZero);
-                        }
-                    BTC.PrevUSD = BTC.RoundUSD;
+                    diffout = ETH.RoundUSD - ETH.PrevUSD;
+                    percentileout = Math.Round((ETH.RoundUSD / ETH.PrevUSD * 100 - 100), 3, MidpointRounding.AwayFromZero);
                 }
-
-                using (var web = new System.Net.WebClient())
-                {
-                    var url = @"https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD&api_key=fe78af9dcc7d50bfca734160306572698d9a62690be9492c334f626ec4afdec0";
-                    json = web.DownloadString(url);
-                }
-                INPUTdata INETH = JsonConvert.DeserializeObject<INPUTdata>(json);
-                ETH.RoundUSD = (int)Math.Round(INETH.USD);
-                if (ETH.RoundUSD != ETH.PrevUSD)
-                {
-                    KimenetLista.Add(ETH.RoundUSD);
-                    kimenet.Items.Refresh();
-                    if (ETH.PrevUSD != 0)
-                    {
-                        diffout = ETH.RoundUSD - ETH.PrevUSD;
-                        percentileout = Math.Round((ETH.RoundUSD / ETH.PrevUSD * 100 - 100), 3, MidpointRounding.AwayFromZero);
-                    }
-                    ETH.PrevUSD = ETH.RoundUSD;
-                }
+                ETH.PrevUSD = ETH.RoundUSD;
+            }
+            
+        }
+        MainVM vm;
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            vm = (MainVM)(sender as Window).FindResource("VM");
         }
     }
 }
